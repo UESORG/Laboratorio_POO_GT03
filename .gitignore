@@ -1,36 +1,41 @@
-HELP.md
-target/
-.mvn/
-.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
-###GRADLE ###
-/.gradle/
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Compilados y binarios
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
 
-### IntelliJ IDEA ###
-.idea/
+# Directorios de compilación (Gradle / Maven)
+build/
+target/
+.gradle/
 out/
-*.iws
+bin/
+
+# Excepciones para Wrappers (Permite subir gradlew/mvnw sin problemas)
+!gradle/wrapper/gradle-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
+
+# Configuración de IDEs (IntelliJ / VS Code / Eclipse)
+.idea/
 *.iml
 *.ipr
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### VS Code ###
+*.iws
 .vscode/
+.settings/
+.classpath
+.project
+
+# Archivos de entorno y credenciales (OBLIGATORIO IGNORAR)
+.env
+*.env
+application-local.properties
+application-dev.properties
+*.local
+
+# Logs del sistema
+*.log
+hs_err_pid*
+replay_pid*

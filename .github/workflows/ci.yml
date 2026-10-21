@@ -1,0 +1,50 @@
+name: Evaluacion de Entrega POO
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  validar-entrega:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: 1. Auditar credenciales expuestas en el código
+        run: |
+          if grep -r -i -E "LabPoo2026!|\.rds\.amazonaws\.com" --exclude-dir={.git,.github,build,target} --exclude="README.md" .; then
+            echo "❌ WARNING: Credenciales o endpoints detectados en el código."
+            exit 1
+          fi
+
+      - name: 2. Validar ausencia del archivo .env
+        if: always()
+        run: |
+          if [ -f .env ]; then
+            echo "❌ ERROR: Se detectó el archivo .env en el repositorio."
+            exit 1
+          fi
+
+      - name: 3. Probar compilación del proyecto
+        if: always()
+        run: |
+          if [ -f "gradlew" ]; then
+            chmod +x gradlew
+            ./gradlew build -x test
+          elif [ -f "mvnw" ]; then
+            chmod +x mvnw
+            ./mvnw package -DskipTests
+          else
+            echo "❌ ERROR: No se encontró un proyecto válido de Gradle o Maven."
+            exit 1
+          fi
