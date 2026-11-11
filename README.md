@@ -54,7 +54,7 @@ El pipeline debe ejecutarse en un **único Job** que contenga secuencialmente lo
 
 | Criterio | Porcentaje | Descripción |
 | :--- | :---: | :--- |
-| **Código fuente en el repositorio** | **20%** | Realizar *push* del código funcional hacia la rama correspondiente asignada por Classroom 50, con la estructura de proyecto Spring Boot correcta. |
+| **Código fuente en el repositorio y evidencias de consumo de API** | **20%** | Realizar *push* del código funcional hacia la rama correspondiente asignada por Classroom 50, con la estructura de proyecto Spring Boot correcta. |
 | **Paso 1 (Step 1): Validación y Tests** | **20%** | Ejecución en verde ($\checkmark$) del paso de pruebas unitarias en GitHub Actions. |
 | **Paso 2 (Step 2): Compilación** | **20%** | Compilación exitosa y generación del archivo `.jar` en GitHub Actions. |
 | **Paso 3 (Step 3): Generación de Imagen Docker** | **20%** | Construcción correcta de la imagen contenedorizada. |
@@ -66,3 +66,6 @@ El pipeline debe ejecutarse en un **único Job** que contenga secuencialmente lo
 
 1. **Validación del Pipeline:** Cada paso (*step*) del workflow aportará un 20% a la nota final únicamente si el indicador en la pestaña **Actions** de GitHub finaliza con el icono verde de éxito.
 2. **Entrega de la Tarea:** La evaluación se realizará directamente sobre el último *push* realizado en la rama principal antes de la fecha límite fijada.
+
+## 6. Evidencias de consumo de API
+> **Importante:** Pega aqui tus imagenes que respalden el consumo con el metodo GET de tu API.
